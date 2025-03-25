@@ -35,7 +35,7 @@
                 if($encontrado_index != false) {
                     echo '<h2>Encontrado produto: ' . $produtos[$encontrado_index] . ' no índice ' . $encontrado_index . '</h2>';
                 } else {
-                    echo '<h2></h2>'
+                    echo '<h2></h2>';
                 }
             } 
 
