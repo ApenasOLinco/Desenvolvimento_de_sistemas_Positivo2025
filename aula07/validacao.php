@@ -5,20 +5,13 @@ function form_post_nao_enviado()
     return $_SERVER['REQUEST_METHOD'] != "POST";
 }
 
-function validar_form()
-{
-    $erros = [];
-
-    array_push($erros, );
-}
-
 function campos_estao_em_branco()
 {
     $erros = [];
 
     foreach ($_POST as $campo => $valor) {
-        if (strlen($valor) == 0) {
-            array_push($erros, $campo);
+        if ($valor === null || strlen($valor) == 0) {
+            $erros[] = $campo;
         }
     }
 
@@ -43,11 +36,15 @@ function campos_nao_numericos()
 
 function notas_fora_de_intervalo()
 {
-    foreach ($_POST as $campo) {
+    $erros = [];
 
-        if ($campo < 0) {
+    foreach ($_POST as $campo => $valor) {
 
+        if ($valor < 0 || $valor > 10) {
+            $erros[] = $campo;
         }
     }
+
+    return $erros;
 }
 ?>
