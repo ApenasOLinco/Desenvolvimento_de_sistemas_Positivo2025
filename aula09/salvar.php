@@ -16,7 +16,7 @@
     require_once 'conexao.php';
     require_once 'validacao.php';
 
-    verificar();
+    verificarDados();
 
     $nome  = $_POST['nome'];
     $fone  = $_POST['fone'];
@@ -41,6 +41,7 @@
         die("<h2>Erro ao salvar cliente: " . mysqli_error($conn) . "</h2>");
     }
 
+    mysqli_stmt_close($stmt);
     mysqli_close($conn);
     ?>
 </body>

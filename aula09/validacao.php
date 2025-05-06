@@ -1,5 +1,5 @@
 <?php
-function verificar()
+function verificarDados()
 {
     $errors = [];
 

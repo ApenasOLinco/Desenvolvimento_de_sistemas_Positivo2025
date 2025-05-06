@@ -27,27 +27,37 @@
 
     $conn = conectar_bd();
     $res = mysqli_query($conn, "SELECT * FROM Cliente");
-    mysqli_close($conn);
-
+    
+    if(mysqli_num_rows($res) === 0) {
+        die("Nenhum resultado para a consulta.");
+    }
+    
     echo '<h3>Lista de Clientes Cadastrados</h3>';
-
+    
     echo '<table border="1">';
     echo "<th>ID #</th>";
     echo "<th>Nome</th>";
     echo "<th>Telefone</th>";
     echo "<th>E-mail</th>";
-
+    echo "<th>Ações</th>";
+    
     while ($linha = mysqli_fetch_assoc($res)) {
         echo "<tr>";
         echo "<td>" . $linha['id'] . "</td>";
         echo "<td>" . $linha['nome'] . "</td>";
         echo "<td>" . $linha['fone'] . "</td>";
         echo "<td>" . $linha['email'] . "</td>";
+        echo '
+        <td>
+            <a href="excluir.php?id=' . $linha['id'] . '">Excluir</a> |
+            <a href="editar.php?id=' . $linha['id'] . '">Editar</a>
+        </td>';
         echo "</tr>";
     }
-
+    
     echo '</table>';
-
+    
+    mysqli_close($conn);
     ?>
 </body>
 
