@@ -13,9 +13,12 @@ table {
     border-collapse: collapse;
     border-radius: 18px 18px 0 0;
     overflow: hidden;
+    box-shadow: lightgray -4px 4px 10px;
 }
 
 th {
+    position: sticky;
+    top: 0;
     background-color: var(--componentes-neutro-fundo);
 }
 

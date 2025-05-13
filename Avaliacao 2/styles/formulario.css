@@ -47,4 +47,5 @@ input[type="submit"] {
     letter-spacing: .15ch;
     font-size: 15px;
     transition: background-color .2s;
+    cursor: pointer;
 }
