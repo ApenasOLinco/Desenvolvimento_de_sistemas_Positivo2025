@@ -1,0 +1,12 @@
+:root {
+    --componentes-neutro-fundo: #f5f5f5;
+    --componentes-neutro-borda: rgb(206, 206, 206);
+
+    --componentes-foco-fundo: #EEE;
+    --componentes-foco-borda: gray;
+
+    --outros-hover-fundo: azure;
+
+    --componentes-erro-fundo: rgb(255, 221, 221);
+    --componentes-erro-borda: red;
+}

@@ -11,7 +11,7 @@
 <body>
     <a href="index.php">Home</a>
 
-    <h2>Produtos cadastrados</h2>
+    <h1>Produtos cadastrados</h1>
 
     <table>
         <thead>

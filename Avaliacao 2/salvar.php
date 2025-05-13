@@ -56,7 +56,7 @@ require_once "validacao.php";
         die("Erro ao executar o SQL");
     }
 
-    echo "<h3>Produto cadastrado com sucesso!</h3>";
+    echo "<h2 class=\"success-message\">Produto cadastrado com sucesso!</h2>";
     mysqli_close($connection);
     ?>
 </body>

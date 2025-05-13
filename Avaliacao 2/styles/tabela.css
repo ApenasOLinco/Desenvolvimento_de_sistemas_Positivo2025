@@ -1,10 +1,28 @@
-table,
+@import url('Esquemas de cores/tema-claro.css');
+
 th,
 td {
-    border: 1px solid black;
-    border-collapse: collapse;
-
-    padding: 2ch;
+    padding: 1ch;
     text-align: center;
     vertical-align: middle;
+}
+
+table {
+    width: 55vw;
+    margin: auto;
+    border-collapse: collapse;
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
+}
+
+th {
+    background-color: var(--componentes-neutro-fundo);
+}
+
+td {
+    border-bottom: 1px solid var(--componentes-neutro-borda);
+}
+
+tr:hover {
+    background-color: var(--outros-hover-fundo);
 }

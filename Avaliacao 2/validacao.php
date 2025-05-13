@@ -18,7 +18,7 @@ function validar()
 
     if ($erros) {
         echo "<h2>" . (sizeof($erros) > 1 ? "Erros" : "Erro") . " ao validar o formulário:</h2>";
-        echo "<ul>";
+        echo "<ul class='lista-erros'>";
 
         foreach ($erros as $erro) {
             echo "<li>$erro</li>";
