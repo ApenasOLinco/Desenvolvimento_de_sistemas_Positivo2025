@@ -1,4 +1,6 @@
 :root {
+    --site-plano-de-fundo: #FFF;
+    
     --componentes-neutro-fundo: #f5f5f5;
     --componentes-neutro-borda: rgb(206, 206, 206);
 
@@ -7,6 +9,9 @@
 
     --outros-hover-fundo: azure;
 
-    --componentes-erro-fundo: rgb(255, 221, 221);
-    --componentes-erro-borda: red;
+    --outros-erro-fundo: rgb(255, 221, 221);
+    --outros-erro-borda: red;
+
+    --texto-warn-fundo: rgb(199, 213, 255);
+    --texto-warn-frente: black;
 }

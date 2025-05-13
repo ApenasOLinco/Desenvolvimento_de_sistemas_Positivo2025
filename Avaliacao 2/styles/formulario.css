@@ -20,7 +20,7 @@ input {
     border-radius: 5px;
 }
 
-input:not([type="submit"]) {
+.campo-cadastro {
     display: block;
     margin: 0 0 15px 0;
     padding: .5rem;
@@ -32,12 +32,12 @@ input:not([type="submit"]) {
     border: 1px solid var(--componentes-neutro-borda);
 }
 
-input:not([type="submit"]):focus {
+.campo-cadastro:focus {
     background-color: var(--componentes-foco-fundo);
     outline: 1px solid var(--componentes-foco-borda);
 }
 
-input[type="submit"] {
+#botao-cadastro {
     display: block;
     margin: auto;
     height: 2rem;

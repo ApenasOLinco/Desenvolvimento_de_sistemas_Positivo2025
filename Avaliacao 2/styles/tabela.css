@@ -26,6 +26,12 @@ td {
     border-bottom: 1px solid var(--componentes-neutro-borda);
 }
 
-tr:hover {
+tr:hover * {
     background-color: var(--outros-hover-fundo);
+}
+
+.campo-editavel {
+    border: none;
+    background-color: var(--site-plano-de-fundo);
+    width: fit-content;
 }

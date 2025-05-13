@@ -36,9 +36,21 @@ li {
 }
 
 .lista-erros {
-    background-color: var(--componentes-erro-fundo);
+    background-color: var(--outros-erro-fundo);
 }
 
 .success-message {
     color: green;
+}
+
+p.tip-text {
+    background: var(--texto-warn-fundo);
+    color: var(--texto-warn-frente);
+
+    width: fit-content;
+
+    margin: 1rem auto;
+    padding: .6ch;
+    
+    border-radius: 100px / 100px;
 }
