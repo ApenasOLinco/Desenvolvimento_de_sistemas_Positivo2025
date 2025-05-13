@@ -9,7 +9,7 @@
 }
 
 body {
-    margin: 15px;
+    margin: 55px;
 }
 
 h2 {
@@ -21,11 +21,11 @@ form {
     width: fit-content;
 }
 
-table, th, td {
+table,  th, td {
     border: 1px solid black;
     border-collapse: collapse;
 
-    padding: .3ch;
+    padding: 2ch;
     text-align: center;
     vertical-align: middle;
 }
@@ -37,7 +37,7 @@ input {
 input:not([type="submit"]) {
     display: block;
     margin: 0 0 15px 0;
-    padding: .5rem .5ch;
+    padding: .5rem;
     width: 40ch;
     height: 1.8rem;
 }
