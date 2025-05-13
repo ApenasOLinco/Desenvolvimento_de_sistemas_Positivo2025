@@ -1,52 +1,21 @@
+/* Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Folhas de estilo internas */
+@import url(texto.css);
+@import url(formulario.css);
+@import url(tabela.css);
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 
     /* outline: red 1px solid; */
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 body {
     margin: 55px;
-}
-
-h2 {
-    font-size: 32px;
-    margin: .5ch 0 .5ch 0;
-}
-
-form {
-    width: fit-content;
-}
-
-table,  th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-
-    padding: 2ch;
-    text-align: center;
-    vertical-align: middle;
-}
-
-input {
-    border-radius: 5px;
-}
-
-input:not([type="submit"]) {
-    display: block;
-    margin: 0 0 15px 0;
-    padding: .5rem;
-    width: 40ch;
-    height: 1.8rem;
-}
-
-input[type="submit"] {
-    display: block;
-    margin: auto;
-    height: 1.8rem;
-    width: 80px;
-
-    transition: background-color .2s;
 }

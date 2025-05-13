@@ -9,7 +9,7 @@
 <body>
     <a href="listar.php">Listar produtos</a>
 
-    <h2>Cadastrar Produto</h2>
+    <h1>Cadastrar Produto</h1>
     
     <?php require_once "cadastro_form.php";?>
 

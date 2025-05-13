@@ -1,0 +1,39 @@
+:root {
+    --botao-neutro: #f5f5f5;
+    --botao-borda: rgb(206, 206, 206);
+}
+
+form {
+    width: fit-content;
+    margin: auto;
+}
+
+fieldset {
+    border-style: none;
+}
+
+input {
+    border-style: none;
+    border-radius: 5px;
+}
+
+input:not([type="submit"]) {
+    display: block;
+    margin: 0 0 15px 0;
+    padding: .5rem;
+    
+    width: 40ch;
+    height: 1.8rem;
+
+    background-color: var(--botao-neutro);
+    border: 1px solid var(--botao-borda);
+}
+
+input[type="submit"] {
+    display: block;
+    margin: auto;
+    height: 1.8rem;
+    width: 80px;
+
+    transition: background-color .2s;
+}
