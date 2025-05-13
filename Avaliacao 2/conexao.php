@@ -2,8 +2,8 @@
 function conectar() {
     $hostname   = "localhost:3307";
     $username   = "root";
-    $senha      = "root";
-    $database   = "produtos";
+    $senha      = '';
+    $database   = "avaliacao_2";
     
     $connection = mysqli_connect(
         $hostname,
