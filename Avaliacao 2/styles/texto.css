@@ -39,10 +39,6 @@ li {
     background-color: var(--outros-erro-fundo);
 }
 
-p.success {
-    color: green;
-}
-
 p.message {
     width: fit-content;
 
@@ -50,6 +46,10 @@ p.message {
     padding: .6ch;
     
     border-radius: 100px / 100px;
+}
+
+p.success {
+    color: green;
 }
 
 p.tip {

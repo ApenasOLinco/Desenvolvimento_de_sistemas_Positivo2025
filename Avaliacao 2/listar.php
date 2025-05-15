@@ -60,7 +60,7 @@ use Dom\Document; ?>
                 ?>
 
                 <tr>
-                    <form action="editar.php" method="get" target="editar-iframe" onsubmit="editarDialog.showModal()">
+                    <form action="editar.php" method="post" target="editar-iframe" onsubmit="editarDialog.showModal()">
 
                         <input type="hidden" value=<?= $produto["id"] ?> name="id">
 
