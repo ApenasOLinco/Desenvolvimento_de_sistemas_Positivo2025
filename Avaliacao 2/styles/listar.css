@@ -1,0 +1,130 @@
+@import url('Esquemas de cores/tema-claro.css');
+
+
+/*=============================================
+=                   tabela                    =
+=============================================*/
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+table {
+    width: fit-content;
+    margin: auto;
+    border-collapse: collapse;
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
+    box-shadow: lightgray -4px 4px 10px;
+}
+
+th {
+    padding: 1ch;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--componentes-neutro-fundo);
+}
+
+td {
+    padding: .5ch .5ch;
+    border-bottom: 1px solid var(--componentes-neutro-borda);
+}
+
+tr:not(:has(th)):hover * {
+    background-color: var(--outros-hover-fundo);
+}
+
+.campo-editavel {
+    font: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    border: none;
+    background-color: var(--site-plano-de-fundo);
+
+    max-width: 20ch;
+    width: fit-content;
+
+    text-align: center;
+
+    /* Esconder botão de incremento e decremento */
+    &[type="number"] {
+        appearance: textfield;
+    }
+
+    &:focus-visible {
+        background-color: var(--componentes-foco-fundo);
+        outline: 1px solid var(--componentes-foco-borda);
+    }
+}
+
+.td-editar .editar-acao {
+    width: 100%;
+    display: block;
+
+    cursor: pointer;
+    font: inherit;
+    background-color: transparent;
+
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--texto-link-neutro);
+
+    &:visited {
+        color: var(--texto-link-neutro);
+    }
+
+    &:hover {
+        color: var(--texto-link-hover);
+    }
+}
+
+
+/*=============================================
+=               Diálogo de edição             =
+=============================================*/
+
+#editarDialog {
+    width: 50vw;
+    height: 50vh;
+    
+    overflow: visible;
+    position: relative;
+
+    margin: auto;
+    padding: 0;
+
+    border: none;
+
+    backdrop-filter: none;
+}
+
+.close-dialog {
+    font-family: monospace;
+
+    position: absolute;
+    right: 0.4rem;
+    top: 0.4rem;
+
+    text-align: center;
+    vertical-align: middle;
+
+    border: none;
+    border-radius: 50%;
+
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    padding: 0;
+    margin: 0;
+}

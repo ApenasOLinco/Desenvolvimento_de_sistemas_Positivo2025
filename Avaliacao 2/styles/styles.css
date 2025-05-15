@@ -5,7 +5,7 @@
 /* Folhas de estilo internas */
 @import url(texto.css);
 @import url(formulario.css);
-@import url(tabela.css);
+@import url(listar.css);
 
 * {
     padding: 0;

@@ -1,4 +1,6 @@
-<?php require_once "conexao.php"; ?>
+<?php require_once "conexao.php";
+
+use Dom\Document; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +16,35 @@
     <a href="index.php">Home</a>
 
     <h1>Produtos cadastrados</h1>
-    <p class="tip-text">
+
+    <?php
+    $connection = conectar();
+
+    $sql = "SELECT * FROM produtos";
+
+    $result = mysqli_query($connection, $sql);
+
+    if (!$result) {
+        mysqli_close($connection);
+        die("Erro ao recuperar dados do banco: " . mysqli_error($connection));
+    }
+
+    mysqli_close($connection);
+    ?>
+
+
+    <p class="tip message">
         <b>Dica</b>: clique em uma entrada da tabela para editá-la.
     </p>
+
+    <p class="warn message">
+        <b>Atenção</b>: note que alterações não são salvas automaticamente.
+    </p>
+
+    <dialog id="editarDialog">
+        <button class="close-dialog" onclick="editarDialog.close()">x</button>
+        <iframe name="editar-iframe" src="about:blank"></iframe>
+    </dialog>
 
     <table>
         <thead>
@@ -24,41 +52,39 @@
             <th>Nome</th>
             <th>Preço</th>
             <th>Quantidade</th>
+            <th>Editar</th>
         </thead>
         <tbody>
             <?php
-            $connection = conectar();
-
-            $sql = "SELECT * FROM produtos";
-
-            $result = mysqli_query($connection, $sql);
-
-            if (!$result) {
-                mysqli_close($connection);
-                die("Erro ao recuperar dados do banco: " . mysqli_error($connection));
-            }
-
-            mysqli_close($connection);
-
-            while ($next = mysqli_fetch_assoc($result)) {
+            while ($produto = mysqli_fetch_assoc($result)) {
                 ?>
 
                 <tr>
-                    <td>
-                        <input type="text" value=<?= $next["id"] ?> class="campo-editavel">
-                    </td>
+                    <form action="editar.php" method="get" target="editar-iframe" onsubmit="editarDialog.showModal()">
 
-                    <td>
-                        <input type="text" value=<?= $next["nome"] ?> class="campo-editavel">
-                    </td>
+                        <input type="hidden" value=<?= $produto["id"] ?> name="id">
 
-                    <td>
-                        <input type="text" value=<?= number_format($next["preco"], 2) ?> class="campo-editavel">
-                    </td>
+                        <td>
+                            <?= $produto["id"] ?>
+                        </td>
 
-                    <td>
-                        <input type="number" value=<?= $next["quantidade"] ?> class="campo-editavel">
-                    </td>
+                        <td>
+                            <input name="nome" type="text" value="<?= $produto["nome"] ?>" class="campo-editavel">
+                        </td>
+
+                        <td>
+                            <input name="preco" type="text" value="<?= number_format($produto["preco"], 2) ?>" class="campo-editavel">
+                        </td>
+
+                        <td>
+                            <input name="quantidade" type="number" value="<?= $produto["quantidade"] ?>" class="campo-editavel">
+                        </td>
+
+                        <td class="td-editar">
+                            <input type="submit" value="Editar" class="editar-acao">
+                            <a href="excluir.php?id='<?= $produto["id"] ?>'" class="editar-acao">Excluir</a>
+                        </td>
+                    </form>
                 </tr>
 
                 <?php

@@ -12,6 +12,15 @@
     --outros-erro-fundo: rgb(255, 221, 221);
     --outros-erro-borda: red;
 
-    --texto-warn-fundo: rgb(199, 213, 255);
+    --texto-success-fundo: green;
+    --texto-success-frente: black;
+    
+    --texto-tip-fundo: rgb(199, 213, 255);
+    --texto-tip-frente: black;
+
+    --texto-warn-fundo: rgb(255, 255, 44);
     --texto-warn-frente: black;
+
+    --texto-link-neutro: blue;
+    --texto-link-hover: rgb(110, 110, 255);
 }
