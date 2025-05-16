@@ -50,14 +50,14 @@ require_once "validacao.php";
             $quantidade
         )
     ) {
-        mysqli_close($connection);
+        fecharConexao($connection, $stmt);
         die("Erro inesperado ao processar os dados para inserção.");
     }
 
     echo "<h2>Salvando o produto... se nenhuma mensagem for exibida após esta, o processo falhou.</h2>";
 
     if (!mysqli_stmt_execute($stmt)) {
-        mysqli_close($connection);
+        fecharConexao($connection, $stmt);
         die("Erro ao executar o SQL");
     }
 
@@ -65,7 +65,7 @@ require_once "validacao.php";
 
     <p class="success message">Produto cadastrado com sucesso!</p>
 
-    <?php mysqli_close($connection); ?>
+    <?php fecharConexao($connection, $stmt); ?>
 </body>
 
 </html>

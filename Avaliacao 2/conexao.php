@@ -18,3 +18,11 @@ function conectar() {
 
     return $connection;
 }
+
+function fecharConexao($connection, $stmt=null) {
+    if(!$stmt==null) {
+        mysqli_stmt_close($stmt);
+    }
+
+    mysqli_close($connection);
+}

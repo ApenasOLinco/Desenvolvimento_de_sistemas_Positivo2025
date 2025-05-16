@@ -33,7 +33,7 @@
 
     $stmt = mysqli_prepare($connection, $sql);
     if(!mysqli_stmt_bind_param($stmt, "i", $id)) {
-        mysqli_close($connection);
+        fecharConexao($connection, $stmt);
 
         ?>
         <p class="error message">Erro ao bindar parâmetros.</p>
@@ -43,7 +43,7 @@
     }
     
     if(!mysqli_execute($stmt)) {
-        mysqli_close($connection);
+        fecharConexao($connection, $stmt);
 
         ?>
         <p class="error message">Erro ao excluir produto.</p>
@@ -56,7 +56,7 @@
     <p class="success message">Produto excluido com sucesso. Atualize a página para ver resultados</p>
     
     <?php
-    mysqli_close($connection);
+    fecharConexao($connection, $stmt);
     ?>
 </body>
 

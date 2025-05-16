@@ -53,7 +53,7 @@
     );
 
     if (!$stmt || !$bind) {
-        mysqli_close($connection);
+        fecharConexao($connection, $stmt);
         ?>
         <p class="error message">Erro ao preparar a consulta ou ao fazer bind.</p>
         <?php
@@ -62,7 +62,7 @@
     }
 
     if (!mysqli_execute($stmt)) {
-        mysqli_close($connection);
+        fecharConexao($connection, $stmt);
 
         ?>
         <p class="error message">Erro ao executar a consulta</p>
@@ -75,7 +75,7 @@
     <p class="success message">Produto alterado com sucesso!</p>
 
     <?php
-    mysqli_close($connection);
+    fecharConexao($connection, $stmt);
     ?>
 
 </body>
