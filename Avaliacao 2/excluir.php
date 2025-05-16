@@ -14,27 +14,36 @@
     <?php
     require_once 'conexao.php';
 
-    if($_SERVER['REQUEST_METHOD'] != "GET") {
+    if ($_SERVER['REQUEST_METHOD'] != "GET") {
         ?>
         <p class="error message">Método de requisição inválido.</p>
         <?php
     }
-    
-    if(empty($_GET["id"])) {
+
+    if (empty($_GET['id'])) {
         ?>
         <p class="error message">Id não fornecido</p>
         <?php
     }
-    $id = $_GET["id"];
-    
+    $id = $_GET['id'];
+
     $connection = conectar();
 
-    $sql = "
-        DELETE FROM produtos WHERE id = ?
-    ";
+    $sql = "DELETE FROM produtos WHERE id = ?";
 
     $stmt = mysqli_prepare($connection, $sql);
-    if(!mysqli_stmt_bind_param($stmt, "i", $id)) {
+
+    if (!$stmt) {
+        fecharConexao($stmt, "i");
+
+        ?>
+        <p class="error message">Erro ao preparar o statement.</p>
+        <?php
+
+        die;
+    }
+
+    if (!mysqli_stmt_bind_param($stmt, "i", $id)) {
         fecharConexao($connection, $stmt);
 
         ?>
@@ -43,8 +52,8 @@
 
         die;
     }
-    
-    if(!mysqli_execute($stmt)) {
+
+    if (!mysqli_stmt_execute($stmt)) {
         fecharConexao($connection, $stmt);
 
         ?>
@@ -54,12 +63,20 @@
         die;
     }
 
+    if (mysqli_affected_rows($connection) == 0) {
+        fecharConexao($connection, $stmt);
+
+        ?>
+        <p class="error message">O produto de id <?= $id ?> não existe.</p>
+        <?php
+
+        die;
+    }
+
     ?>
-    <p class="success message">Produto excluido com sucesso. Atualize a página para ver resultados</p>
-    
-    <?php
-    fecharConexao($connection, $stmt);
-    ?>
+    <p class="success message">Produto excluido com sucesso.</p>
+    <?php fecharConexao($connection, $stmt); ?>
+
 </body>
 
 </html>

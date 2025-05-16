@@ -18,20 +18,63 @@ use Dom\Document; ?>
     <h1>Produtos cadastrados</h1>
 
     <?php
-    $connection = conectar();
+    function fetch_table_data()
+    {
+        $connection = conectar();
 
-    $sql = "SELECT * FROM produtos";
+        $sql = "SELECT * FROM produtos";
 
-    $result = mysqli_query($connection, $sql);
+        $result = mysqli_query($connection, $sql);
 
-    if (!$result) {
+        if (!$result) {
+            mysqli_close($connection);
+            die("Erro ao recuperar dados do banco: " . mysqli_error($connection));
+        }
+
         mysqli_close($connection);
-        die("Erro ao recuperar dados do banco: " . mysqli_error($connection));
+
+        while ($produto = mysqli_fetch_assoc($result)) {
+            ?>
+
+            <tr>
+                <form action="editar.php" method="post" target="editar-iframe" onsubmit="editarDialog.showModal()">
+
+                    <input type="hidden" value=<?= $produto["id"] ?> name="id">
+
+                    <td>
+                        <?= $produto["id"] ?>
+                    </td>
+
+                    <td>
+                        <input name="nome" type="text" value="<?= $produto["nome"] ?>" class="campo-editavel">
+                    </td>
+
+                    <td>
+                        <input name="preco" type="text" value="<?= number_format($produto["preco"], 2) ?>"
+                            class="campo-editavel">
+                    </td>
+
+                    <td>
+                        <input name="quantidade" type="number" value="<?= $produto["quantidade"] ?>" class="campo-editavel">
+                    </td>
+
+                    <td class="td-editar">
+                        <input type="submit" value="Salvar" class="editar-acao">
+
+                        <a  href="excluir.php?id=<?= $produto["id"] ?>"
+                            target="editar-iframe"
+                            class="editar-acao"
+                            onclick="editarDialog.showModal();">
+                            Excluir
+                        </a>
+                    </td>
+                </form>
+            </tr>
+
+            <?php
+        }
     }
-
-    mysqli_close($connection);
     ?>
-
 
     <p class="tip message">
         <b>Dica</b>: clique em uma entrada da tabela para editá-la.
@@ -54,50 +97,8 @@ use Dom\Document; ?>
             <th>Quantidade</th>
             <th>Editar</th>
         </thead>
-        <tbody>
-            <?php
-            while ($produto = mysqli_fetch_assoc($result)) {
-                ?>
-
-                <tr>
-                    <form action="editar.php" method="post" target="editar-iframe" onsubmit="editarDialog.showModal()">
-
-                        <input type="hidden" value=<?= $produto["id"] ?> name="id">
-
-                        <td>
-                            <?= $produto["id"] ?>
-                        </td>
-
-                        <td>
-                            <input name="nome" type="text" value="<?= $produto["nome"] ?>" class="campo-editavel">
-                        </td>
-
-                        <td>
-                            <input name="preco" type="text" value="<?= number_format($produto["preco"], 2) ?>"
-                                class="campo-editavel">
-                        </td>
-
-                        <td>
-                            <input name="quantidade" type="number" value="<?= $produto["quantidade"] ?>"
-                                class="campo-editavel">
-                        </td>
-
-                        <td class="td-editar">
-                            <input type="submit" value="Salvar" class="editar-acao">
-                            <a  href="excluir.php?id='<?= $produto["id"] ?>'"
-                                target="editar-iframe"
-                                onclick="editarDialog.showModal()"
-                                class="editar-acao"
-                                >Excluir
-                            </a>
-                        </td>
-                    </form>
-                </tr>
-
-                <?php
-            }
-
-            ?>
+        <tbody id="dados_tabela">
+            <?php fetch_table_data() ?>
         </tbody>
     </table>
 </body>
