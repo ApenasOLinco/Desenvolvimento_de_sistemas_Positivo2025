@@ -46,6 +46,15 @@ input {
     font-family: Roboto;
     letter-spacing: .15ch;
     font-size: 15px;
-    transition: background-color .2s;
     cursor: pointer;
+
+    transition: background-color .2s;
+    color: var(--componentes-neutro-frente);
+    background: var(--componentes-neutro-fundo);
+
+    &:hover {
+        color: var(--componentes-hover-frente);
+        background-color: var(--componentes-hover-fundo);
+        border: 1px solid var(--componentes-hover-borda);
+    }
 }

@@ -38,7 +38,7 @@ use Dom\Document; ?>
     </p>
 
     <p class="warn message">
-        <b>Atenção</b>: note que alterações não são salvas automaticamente.
+        <b>Atenção</b>: note que alterações <b>não</b> são salvas automaticamente.
     </p>
 
     <dialog id="editarDialog">
@@ -73,16 +73,23 @@ use Dom\Document; ?>
                         </td>
 
                         <td>
-                            <input name="preco" type="text" value="<?= number_format($produto["preco"], 2) ?>" class="campo-editavel">
+                            <input name="preco" type="text" value="<?= number_format($produto["preco"], 2) ?>"
+                                class="campo-editavel">
                         </td>
 
                         <td>
-                            <input name="quantidade" type="number" value="<?= $produto["quantidade"] ?>" class="campo-editavel">
+                            <input name="quantidade" type="number" value="<?= $produto["quantidade"] ?>"
+                                class="campo-editavel">
                         </td>
 
                         <td class="td-editar">
-                            <input type="submit" value="Editar" class="editar-acao">
-                            <a href="excluir.php?id='<?= $produto["id"] ?>'" class="editar-acao">Excluir</a>
+                            <input type="submit" value="Salvar" class="editar-acao">
+                            <a  href="excluir.php?id='<?= $produto["id"] ?>'"
+                                target="editar-iframe"
+                                onclick="editarDialog.showModal()"
+                                class="editar-acao"
+                                >Excluir
+                            </a>
                         </td>
                     </form>
                 </tr>

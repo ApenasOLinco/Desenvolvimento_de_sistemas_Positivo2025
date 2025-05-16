@@ -1,25 +1,33 @@
 :root {
     --site-plano-de-fundo: #FFF;
     
-    --componentes-neutro-fundo: #f5f5f5;
+    --componentes-neutro-fundo: #eeeeee;
+    --componentes-neutro-frente: black;
     --componentes-neutro-borda: rgb(206, 206, 206);
 
-    --componentes-foco-fundo: #EEE;
+    --componentes-foco-fundo: #edf6f8;
     --componentes-foco-borda: gray;
+
+    --componentes-hover-fundo: #f7f7f7;
+    --componentes-hover-frente: black;
+    --componentes-hover-borda: rgb(226, 226, 226);
 
     --outros-hover-fundo: azure;
 
     --outros-erro-fundo: rgb(255, 221, 221);
     --outros-erro-borda: red;
 
-    --texto-success-fundo: green;
+    --texto-success-fundo: rgb(67, 255, 67);
     --texto-success-frente: black;
     
     --texto-tip-fundo: rgb(199, 213, 255);
     --texto-tip-frente: black;
 
-    --texto-warn-fundo: rgb(255, 255, 44);
+    --texto-warn-fundo: rgb(255, 255, 0);
     --texto-warn-frente: black;
+
+    --texto-erro-fundo: rgb(255, 106, 106);
+    --texto-erro-frente: black;
 
     --texto-link-neutro: blue;
     --texto-link-hover: rgb(110, 110, 255);

@@ -9,7 +9,7 @@
             "name": "Listen for Xdebug",
             "type": "php",
             "request": "launch",
-            "port": 9003,
+            "port": 80,
         },
         {
             "name": "Launch currently open script",
@@ -78,11 +78,6 @@
             },
             "profile": true,
             "openProfile": true
-        },
-        {
-            "name": "Listen for Xdebug",
-            "type": "php",
-            "request": "launch"
         }
     ]
 }
