@@ -36,7 +36,7 @@ use Dom\Document; ?>
         while ($produto = mysqli_fetch_assoc($result)) {
             ?>
 
-            <tr>
+            <tr id="row-<?= $produto["id"] ?>">
                 <form action="editar.php" method="post" target="editar-iframe" onsubmit="editarDialog.showModal()">
 
                     <input type="hidden" value=<?= $produto["id"] ?> name="id">
@@ -61,10 +61,10 @@ use Dom\Document; ?>
                     <td class="td-editar">
                         <input type="submit" value="Salvar" class="editar-acao">
 
-                        <a  href="excluir.php?id=<?= $produto["id"] ?>"
-                            target="editar-iframe"
-                            class="editar-acao"
-                            onclick="editarDialog.showModal();">
+                        <a href="excluir.php?id=<?= $produto["id"] ?>" target="editar-iframe" class="editar-acao" onclick="
+                                editarDialog.showModal();
+                                document.getElementById('row-<?= $produto['id'] ?>').remove();
+                            ">
                             Excluir
                         </a>
                     </td>
@@ -85,8 +85,13 @@ use Dom\Document; ?>
     </p>
 
     <dialog id="editarDialog">
-        <button class="close-dialog" onclick="editarDialog.close()">x</button>
-        <iframe name="editar-iframe" src="about:blank"></iframe>
+        <button class="close-dialog" 
+                onclick="
+                    editarDialog.close();
+                    editar_iframe.contentWindow.document.querySelector('body').innerHTML='';
+                "
+        >x</button>
+        <iframe id="editar_iframe" name="editar-iframe" src="about:blank"></iframe>
     </dialog>
 
     <table>
@@ -102,5 +107,11 @@ use Dom\Document; ?>
         </tbody>
     </table>
 </body>
+
+<script>
+    function apagarLinha(numLinha) {
+        let dadosTabela = document.getElementById('dados_tabela');
+    }
+</script>
 
 </html>
