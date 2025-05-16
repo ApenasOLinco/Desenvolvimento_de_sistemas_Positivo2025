@@ -41,6 +41,7 @@ li {
 
 p.message {
     width: fit-content;
+    text-align: center;
 
     margin: 1rem auto;
     padding: .6ch;

@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <h1>Salvar produto</h1>
+    
     <?php
     require_once 'validacao.php';
     require_once 'conexao.php';
@@ -30,7 +32,6 @@
 
         die;
     }
-
 
     $sql = "
         UPDATE produtos

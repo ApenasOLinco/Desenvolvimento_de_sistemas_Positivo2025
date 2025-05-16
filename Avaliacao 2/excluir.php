@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <h1>Excluir produto</h1>
+
     <?php
     require_once 'conexao.php';
 
