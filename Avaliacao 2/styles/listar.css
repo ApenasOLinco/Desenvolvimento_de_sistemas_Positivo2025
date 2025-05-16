@@ -91,10 +91,9 @@ tr:not(:has(th)):hover * {
     width: 50vw;
     height: 16vw;
     
-    overflow: visible;
-    position: relative;
-
+    position: fixed;
     margin: auto;
+
     padding: 0;
 
     border: none;
