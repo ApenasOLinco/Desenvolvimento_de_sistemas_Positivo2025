@@ -15,19 +15,13 @@
 
         $code = (int) $_GET['code'];
 
-        switch ($code) {
-            case 0:
-                $erro = "<h3>Você não tem permissão para acessar essa página.</h3>";
-                break;
+        match ($code) {
+            0 => $erro = "<h3>Você não tem permissão para acessar essa página.</h3>",
 
-            case 1:
-                $erro = "<h3>Credenciais inválidas.</h3>";
-                break;
+            1 => $erro = "<h3>Credenciais inválidas.</h3>",
 
-            default:
-                $erro = "";
-                break;
-        }
+            default => $erro = ""
+        };
 
         echo $erro;
     }

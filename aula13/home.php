@@ -1,4 +1,4 @@
-<?php require_once 'lock.php'; ?>
+<?php require_once 'auth/lock.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +12,7 @@
     <h2>Aula 13 - Home</h2>
     <h3>Bem-vindo, <?= $_SESSION['usuario']; ?>!</h3>
 
-    <a href="logout.php">Fazer logout</a>
+    <a href="auth/logout.php">Fazer logout</a>
 </body>
 
 </html>
